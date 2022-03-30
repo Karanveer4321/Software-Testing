@@ -1,1 +1,36 @@
+@startuml
+left to right direction
 
+actor User as user
+actor WebServer as server
+
+
+
+rectangle Amazon{
+(Login) as login
+(Create New Account) as register
+(Verify Credentials) as verify
+(Display Login Error) as error
+(Apply Filters) as filters
+(View Products) as viewProducts
+(Add to favourites) as addfav
+(Remove from favourites) as remfav
+}
+
+login ..> verify : include
+register ..> verify : include
+login <.. error : extend
+
+user -- login
+user -- register
+user -- filters
+user -- viewProducts
+user -- addfav
+user -- remfav
+server -- filters
+server -- viewProducts
+server -- addfav
+server -- remfav
+
+
+@enduml
