@@ -32,5 +32,4 @@ server -- viewProducts
 server -- addfav
 server -- remfav
 
-
 @enduml
