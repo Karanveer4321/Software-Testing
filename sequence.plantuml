@@ -1,0 +1,31 @@
+@startuml
+actor User as user
+participant "Login/Signup" as auth
+participant "Home Page" as home
+participant "Server" as server
+participant "Favourites" as fav
+participant "Trip Website" as trp
+participant "Blog Websites" as blog
+
+user -> auth : Enter UserName
+auth -> server : Verify UserName
+server -> auth : Request Password
+user -> auth : Enter Password
+auth -> server : Verify Password
+
+alt If Password is valid
+    server -> auth : Login Successful
+else Else
+    server -> auth : Invalid Credentials, please retry
+end
+
+server -> trp : Request data to fill in Form
+trp -> server : Return data
+server -> blog : Request data to fill in Blog
+blog -> server : Return data
+server -> home : Display content on screen
+home -> fav : Add to favourites
+fav -> server : Save in server
+
+
+@enduml
