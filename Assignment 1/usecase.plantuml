@@ -4,8 +4,6 @@ left to right direction
 actor User as user
 actor WebServer as server
 
-
-
 rectangle Amazon{
 (Login) as login
 (Create New Account) as register
